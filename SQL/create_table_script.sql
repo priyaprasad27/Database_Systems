@@ -1,5 +1,6 @@
 use school;
 
+set foreign_key_checks = 0;
 drop table if exists TEACHER;
 drop table if exists SUBJECT;
 drop table if exists HOMEROOM;
@@ -7,6 +8,7 @@ drop table if exists ASSIGNMENT;
 drop table if exists STUDENT;
 drop table if exists HOMEWORK;
 drop table if exists TAKEN_BY;
+set foreign_key_checks = 1;
 
 CREATE TABLE TEACHER (TEACHER_ID integer(6), FIRST_NAME VARCHAR(25), LAST_NAME VARCHAR(25), PREFFERED_SUBJECT VARCHAR(25));
 
