@@ -19,11 +19,11 @@ CREATE TABLE TEACHER (
 );
 
 create table SUBJECT (
-  subject_id integer(10) not null,
-  subject_name varchar(30) not null,
-  fk_teacher_id integer(6) not null,
+  SUBJECT_ID integer(10) not null,
+  SUBJECT_NAME varchar(30) not null,
+  FK_TEACHER_ID integer(6) not null,
   constraint SUBJECT_PK primary key (SUBJECT_ID),
-  constraint TEACHER_FK foreign key (FK_TEACHER_ID) references TEACHER(TEACHER_ID)
+  constraint SUBJECT_TEACHER_FK foreign key (FK_TEACHER_ID) references TEACHER(TEACHER_ID)
 );
 
 CREATE TABLE HOMEROOM (
@@ -31,7 +31,7 @@ CREATE TABLE HOMEROOM (
   HOMEROOM_NAME varchar(30) not null,
   FK_TEACHER_ID integer(6) not null,
   constraint HOMEROOM_PK primary key (HOMEROOM_ID),
-  constraint TEACHER_FK foreign key(FK_TEACHER_ID) references TEACHER(TEACHER_ID)
+  constraint HOMEROOM_TEACHER_FK foreign key(FK_TEACHER_ID) references TEACHER(TEACHER_ID)
 );
 
 CREATE TABLE ASSIGNMENT (
@@ -40,7 +40,7 @@ CREATE TABLE ASSIGNMENT (
   URL varchar(30) not null,
   FK_SUBJECT_ID integer(10) not null,
   constraint ASSIGNMENT_PK primary key(ASSIGNMENT_ID),
-  constraint SUBJECT_FK foreign key(FK_SUBJECT_ID) references SUBJECT(SUBJECT_ID)
+  constraint ASSIGNMENT_SUBJECT_FK foreign key(FK_SUBJECT_ID) references SUBJECT(SUBJECT_ID)
 );
 
 CREATE TABLE STUDENT(
@@ -50,7 +50,7 @@ CREATE TABLE STUDENT(
   BIRTHDATE date,
   FK_HOMEROOM_ID integer(6) not null,
   constraint STUDENT_PK primary key(STUDENT_ID),
-  constraint ROOM_fk foreign key(FK_HOMEROOM_ID) references HOMEROOM(HOMEROOM_ID)
+  constraint STUDENT_ROOM_FK foreign key(FK_HOMEROOM_ID) references HOMEROOM(HOMEROOM_ID)
 );
 
 
@@ -61,8 +61,8 @@ CREATE TABLE HOMEWORK (
   FK_STUDENT_ID integer(6) not null,
   FK_ASSIGNMENT_ID integer(6) not null,
   constraint HOMEWORK_PK primary key(HOMEWORK_ID),
-  constraint STUDENT_FK foreign key(FK_STUDENT_ID) references STUDENT(STUDENT_ID),
-  constraint ASSIGNMENT_FK foreign key(FK_ASSIGNMENT_ID) references ASSIGNMENT(ASSIGNMENT_ID)
+  constraint HOMEWORK_STUDENT_FK foreign key(FK_STUDENT_ID) references STUDENT(STUDENT_ID),
+  constraint HOMEWORK_ASSIGNMENT_FK foreign key(FK_ASSIGNMENT_ID) references ASSIGNMENT(ASSIGNMENT_ID)
 );
 
 CREATE TABLE TAKEN_BY (
@@ -70,8 +70,8 @@ CREATE TABLE TAKEN_BY (
   FK_SUBJECT_ID integer(6) not null,
   FINAL_GRADE varchar(2),
   constraint TAKEN_PK primary key(FK_STUDENT_ID,FK_SUBJECT_ID),
-  constraint STUDENT_FK foreign key(FK_STUDENT_ID) references STUDENT(student_id),
-  constraint SUBJECT_FK foreign key(FK_SUBJECT_ID) references SUBJECT(SUBJECT_ID)
+  constraint TAKEN_BY_STUDENT_FK foreign key(FK_STUDENT_ID) references STUDENT(student_id),
+  constraint TAKEN_BY_SUBJECT_FK foreign key(FK_SUBJECT_ID) references SUBJECT(SUBJECT_ID)
 );
 
 
