@@ -1,77 +1,78 @@
-use school;
+/* MySQL */
 
-set foreign_key_checks = 0;
-drop table if exists TEACHER;
-drop table if exists SUBJECT;
-drop table if exists HOMEROOM;
-drop table if exists ASSIGNMENT;
-drop table if exists STUDENT;
-drop table if exists HOMEWORK;
-drop table if exists TAKEN_BY;
-set foreign_key_checks = 1;
+USE school;
 
-CREATE TABLE TEACHER (
-  TEACHER_ID integer(6) not null,
-  FIRST_NAME varchar(25) not null,
-  LAST_NAME varchar(25) not null,
-  PREFERRED_SUBJECT varchar(25),
-  constraint TEACHER_PK primary key (TEACHER_ID)
+SET FOREIGN_KEY_CHECKS = 0;
+DROP TABLE IF EXISTS teacher;
+DROP TABLE IF EXISTS subject;
+DROP TABLE IF EXISTS homeroom;
+DROP TABLE IF EXISTS assignment;
+DROP TABLE IF EXISTS student;
+DROP TABLE IF EXISTS homework;
+DROP TABLE IF EXISTS taken_by;
+SET FOREIGN_KEY_CHECKS = 1;
+
+CREATE TABLE teacher (
+  teacher_id INTEGER(6) NOT NULL,
+  first_name VARCHAR(25) NOT NULL,
+  last_name VARCHAR(25) NOT NULL,
+  preferred_subject VARCHAR(25),
+  CONSTRAINT teacher_pk PRIMARY KEY (teacher_id)
 );
 
-create table SUBJECT (
-  SUBJECT_ID integer(10) not null,
-  SUBJECT_NAME varchar(30) not null,
-  FK_TEACHER_ID integer(6) not null,
-  constraint SUBJECT_PK primary key (SUBJECT_ID),
-  constraint SUBJECT_TEACHER_FK foreign key (FK_TEACHER_ID) references TEACHER(TEACHER_ID)
+CREATE TABLE subject (
+  subject_id INTEGER(10) NOT NULL,
+  subject_name VARCHAR(30) NOT NULL,
+  fk_teacher_id INTEGER(6) NOT NULL,
+  CONSTRAINT subject_pk PRIMARY KEY (subject_id),
+  CONSTRAINT subject_teacher_fk FOREIGN KEY (fk_teacher_id) REFERENCES teacher(teacher_id)
 );
 
-CREATE TABLE HOMEROOM (
-  HOMEROOM_ID integer(6) not null,
-  HOMEROOM_NAME varchar(30) not null,
-  FK_TEACHER_ID integer(6) not null,
-  constraint HOMEROOM_PK primary key (HOMEROOM_ID),
-  constraint HOMEROOM_TEACHER_FK foreign key(FK_TEACHER_ID) references TEACHER(TEACHER_ID)
+CREATE TABLE homeroom (
+  homeroom_id INTEGER(6) NOT NULL,
+  homeroom_name VARCHAR(30) NOT NULL,
+  fk_teacher_id INTEGER(6) NOT NULL,
+  CONSTRAINT homeroom_pk PRIMARY KEY (homeroom_id),
+  CONSTRAINT homeroom_teacher_fk FOREIGN KEY(fk_teacher_id) REFERENCES teacher(teacher_id)
 );
 
-CREATE TABLE ASSIGNMENT (
-  ASSIGNMENT_ID integer(6) not null,
-  ASSIGNEMENT_NAME varchar(30) not null,
-  URL varchar(30) not null,
-  FK_SUBJECT_ID integer(10) not null,
-  constraint ASSIGNMENT_PK primary key(ASSIGNMENT_ID),
-  constraint ASSIGNMENT_SUBJECT_FK foreign key(FK_SUBJECT_ID) references SUBJECT(SUBJECT_ID)
+CREATE TABLE assignment (
+  assignment_id INTEGER(6) NOT NULL,
+  assignement_name VARCHAR(30) NOT NULL,
+  url VARCHAR(30) NOT NULL,
+  fk_subject_id INTEGER(10) NOT NULL,
+  CONSTRAINT assignment_pk PRIMARY KEY(assignment_id),
+  CONSTRAINT assignment_subject_fk FOREIGN KEY(fk_subject_id) REFERENCES subject(subject_id)
 );
 
-CREATE TABLE STUDENT(
-  STUDENT_ID integer(6) not null,
-  FNAME varchar(20) not null,
-  LNAME varchar(20) not null,
-  BIRTHDATE date,
-  FK_HOMEROOM_ID integer(6) not null,
-  constraint STUDENT_PK primary key(STUDENT_ID),
-  constraint STUDENT_ROOM_FK foreign key(FK_HOMEROOM_ID) references HOMEROOM(HOMEROOM_ID)
+CREATE TABLE student(
+  student_id INTEGER(6) NOT NULL,
+  fname VARCHAR(20) NOT NULL,
+  lname VARCHAR(20) NOT NULL,
+  birthdate DATE,
+  fk_homeroom_id INTEGER(6) NOT NULL,
+  CONSTRAINT student_pk PRIMARY KEY(student_id),
+  CONSTRAINT student_room_fk FOREIGN KEY(fk_homeroom_id) REFERENCES homeroom(homeroom_id)
 );
 
-
-CREATE TABLE HOMEWORK (
-  HOMEWORK_ID integer(6) not null,
-  URL varchar(30) not null,
-  FINAL_GRADE varchar(2),
-  FK_STUDENT_ID integer(6) not null,
-  FK_ASSIGNMENT_ID integer(6) not null,
-  constraint HOMEWORK_PK primary key(HOMEWORK_ID),
-  constraint HOMEWORK_STUDENT_FK foreign key(FK_STUDENT_ID) references STUDENT(STUDENT_ID),
-  constraint HOMEWORK_ASSIGNMENT_FK foreign key(FK_ASSIGNMENT_ID) references ASSIGNMENT(ASSIGNMENT_ID)
+CREATE TABLE homework (
+  homework_id INTEGER(6) NOT NULL,
+  url VARCHAR(30) NOT NULL,
+  final_grade VARCHAR(2),
+  fk_student_id INTEGER(6) NOT NULL,
+  fk_assignment_id INTEGER(6) NOT NULL,
+  CONSTRAINT homework_pk PRIMARY KEY(homework_id),
+  CONSTRAINT homework_student_fk FOREIGN KEY(fk_student_id) REFERENCES student(student_id),
+  CONSTRAINT homework_assignment_fk FOREIGN KEY(fk_assignment_id) REFERENCES assignment(assignment_id)
 );
 
-CREATE TABLE TAKEN_BY (
-  FK_STUDENT_ID integer(6) not null,
-  FK_SUBJECT_ID integer(6) not null,
-  FINAL_GRADE varchar(2),
-  constraint TAKEN_PK primary key(FK_STUDENT_ID,FK_SUBJECT_ID),
-  constraint TAKEN_BY_STUDENT_FK foreign key(FK_STUDENT_ID) references STUDENT(student_id),
-  constraint TAKEN_BY_SUBJECT_FK foreign key(FK_SUBJECT_ID) references SUBJECT(SUBJECT_ID)
+CREATE TABLE taken_by (
+  fk_student_id INTEGER(6) NOT NULL,
+  fk_subject_id INTEGER(6) NOT NULL,
+  final_grade VARCHAR(2),
+  CONSTRAINT taken_pk PRIMARY KEY(fk_student_id,fk_subject_id),
+  CONSTRAINT taken_by_student_fk FOREIGN KEY(fk_student_id) REFERENCES student(STUDENT_ID),
+  CONSTRAINT taken_by_subject_fk FOREIGN KEY(fk_subject_id) REFERENCES subject(subject_id)
 );
 
 
