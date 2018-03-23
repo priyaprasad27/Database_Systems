@@ -14,20 +14,24 @@ CREATE TABLE TEACHER (
   TEACHER_ID integer(6),
   FIRST_NAME VARCHAR(25),
   LAST_NAME VARCHAR(25),
-  PREFFERED_SUBJECT VARCHAR(25)
+  PREFERRED_SUBJECT VARCHAR(25),
+  constraint TEACHER_PK primary key (TEACHER_ID)
 );
 
 create table SUBJECT (
   subject_id integer(10),
   subject_name varchar(30),
-  teacher_id integer(6)
+  teacher_id integer(6),
+  constraint SUBJECT_PK primary key (SUBJECT_ID),
+  constraint TEACHER_FK foreign key (TEACHER_ID) references TEACHER(TEACHER_ID)
 );
 
 CREATE TABLE HOMEROOM (
   HOMEROOM_ID integer(6),
   HOMEROOM_NAME varchar(30),
   TEACHER_ID integer(6),
-  constraint teacherID_fk foreign key(teacher_id) references teacher(teacher_id)
+  constraint HOMEROOM_PK primary key (HOMEROOM_ID),
+  constraint TEACHER_FK foreign key(TEACHER_ID) references TEACHER(TEACHER_ID)
 );
 
 CREATE TABLE ASSIGNMENT (
@@ -35,7 +39,8 @@ CREATE TABLE ASSIGNMENT (
   ASSIGNEMENT_NAME varchar(30),
   URL varchar(30),
   SUBJECT_ID integer(10),
-  CONSTRAINT ASSIGNMENT_PK PRIMARY KEY(ASSIGNMENT_ID), CONSTRAINT SUBJECT_FK FOREIGN KEY(SUBJECT_ID) REFERENCES SUBJECT(SUBJECT_ID)
+  CONSTRAINT ASSIGNMENT_PK PRIMARY KEY(ASSIGNMENT_ID),
+  CONSTRAINT SUBJECT_FK FOREIGN KEY(SUBJECT_ID) REFERENCES SUBJECT(SUBJECT_ID)
 );
 
 CREATE TABLE STUDENT(
@@ -44,7 +49,8 @@ CREATE TABLE STUDENT(
   LNAME varchar(20),
   BIRTHDATE DATE,
   HOMEROOM_ID integer(6),
-  CONSTRAINT STUDENT_PK PRIMARY KEY(STUDENT_ID), CONSTRAINT ROOM_fk foreign key(homeroom_id) REFERENCES homeroom(homeroom_id)
+  CONSTRAINT STUDENT_PK PRIMARY KEY(STUDENT_ID),
+  CONSTRAINT ROOM_fk foreign key(homeroom_id) REFERENCES homeroom(homeroom_id)
 );
 
 
