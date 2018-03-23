@@ -1,4 +1,14 @@
-/* MySQL */
+/* MySQL 5.7 */
+
+/**************************************************************************
+Assumptions
+ 
+1. Neither Subject nor Homeroom disappears if a Teacher gets deleted
+2. If a Subject gets deleted, delete all associated Assignments
+3. A Student does not need to be assigned to a Homeroom
+4. A student's Homework exists as long as there is an associated Student,
+   but gets deleted along with the Student
+**************************************************************************/
 
 USE school;
 
