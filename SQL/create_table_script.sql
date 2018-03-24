@@ -1,4 +1,4 @@
-/* MySQL 5.7 */
+/* Oracle 11.2 */
 
 /**************************************************************************
 Assumptions
@@ -10,32 +10,31 @@ Assumptions
    but gets deleted along with the Student
 **************************************************************************/
 
-USE school;
 
-SET FOREIGN_KEY_CHECKS = 0;
-DROP TABLE IF EXISTS teacher;
-DROP TABLE IF EXISTS subject;
-DROP TABLE IF EXISTS homeroom;
-DROP TABLE IF EXISTS assignment;
-DROP TABLE IF EXISTS student;
-DROP TABLE IF EXISTS homework;
-DROP TABLE IF EXISTS taken_by;
-SET FOREIGN_KEY_CHECKS = 1;
+--SET FOREIGN_KEY_CHECKS = 0;
+DROP TABLE teacher CASCADE CONSTRAINTS;
+DROP TABLE subject CASCADE CONSTRAINTS;
+DROP TABLE homeroom CASCADE CONSTRAINTS;
+DROP TABLE assignment CASCADE CONSTRAINTS;
+DROP TABLE student CASCADE CONSTRAINTS;
+DROP TABLE homework CASCADE CONSTRAINTS;
+DROP TABLE taken_by CASCADE CONSTRAINTS;
+-- SET FOREIGN_KEY_CHECKS = 1;
 
 CREATE TABLE teacher (
-  teacher_id        INTEGER(6) NOT NULL,
-  first_name        VARCHAR(25) NOT NULL,
-  last_name         VARCHAR(25) NOT NULL,
-  preferred_subject VARCHAR(25),
-  status            VARCHAR(16) NOT NULL DEFAULT 'UNASSIGNED',
+  teacher_id        NUMBER(6) NOT NULL,
+  first_name        VARCHAR2(25) NOT NULL,
+  last_name         VARCHAR2(25) NOT NULL,
+  preferred_subject VARCHAR2(25),
+  status            VARCHAR2(16) DEFAULT 'UNASSIGNED' NOT NULL,
   CONSTRAINT teacher_pk
     PRIMARY KEY (teacher_id)
 );
 
 CREATE TABLE subject (
-  subject_id    INTEGER(10) NOT NULL,
-  subject_name  VARCHAR(30) NOT NULL,
-  fk_teacher_id INTEGER(6),
+  subject_id    NUMBER(10) NOT NULL,
+  subject_name  VARCHAR2(30) NOT NULL,
+  fk_teacher_id NUMBER(6),
   CONSTRAINT subject_pk
     PRIMARY KEY (subject_id),
   CONSTRAINT subject_sk
@@ -44,87 +43,79 @@ CREATE TABLE subject (
     FOREIGN KEY (fk_teacher_id)
     REFERENCES teacher(teacher_id)
     ON DELETE SET NULL
-    ON UPDATE CASCADE
 );
 
 CREATE TABLE homeroom (
-  homeroom_id   INTEGER(6) NOT NULL,
-  homeroom_name VARCHAR(30) NOT NULL,
-  fk_teacher_id INTEGER(6),
+  homeroom_id   NUMBER(6) NOT NULL,
+  homeroom_name VARCHAR2(30) NOT NULL,
+  fk_teacher_id NUMBER(6),
   CONSTRAINT homeroom_pk
     PRIMARY KEY (homeroom_id),
   CONSTRAINT homeroom_teacher_fk
     FOREIGN KEY(fk_teacher_id)
     REFERENCES teacher(teacher_id)
     ON DELETE SET NULL
-    ON UPDATE CASCADE
 );
 
 CREATE TABLE assignment (
-  assignment_id    INTEGER(6) NOT NULL,
-  assignement_name VARCHAR(30) NOT NULL,
-  url              VARCHAR(30) NOT NULL,
-  fk_subject_id    INTEGER(10) NOT NULL,
+  assignment_id    NUMBER(6) NOT NULL,
+  assignement_name VARCHAR2(30) NOT NULL,
+  url              VARCHAR2(30) NOT NULL,
+  fk_subject_id    NUMBER(10) NOT NULL,
   CONSTRAINT assignment_pk
     PRIMARY KEY(assignment_id),
   CONSTRAINT assignment_subject_fk
     FOREIGN KEY(fk_subject_id)
     REFERENCES subject(subject_id)
     ON DELETE CASCADE
-    ON UPDATE CASCADE
 );
 
 CREATE TABLE student(
-  student_id     INTEGER(6) NOT NULL,
-  fname          VARCHAR(20) NOT NULL,
-  lname          VARCHAR(20) NOT NULL,
+  student_id     NUMBER(6) NOT NULL,
+  fname          VARCHAR2(20) NOT NULL,
+  lname          VARCHAR2(20) NOT NULL,
   birthdate      DATE,
-  fk_homeroom_id INTEGER(6),
+  fk_homeroom_id NUMBER(6),
   CONSTRAINT student_pk
     PRIMARY KEY(student_id),
   CONSTRAINT student_room_fk
     FOREIGN KEY(fk_homeroom_id)
     REFERENCES homeroom(homeroom_id)
     ON DELETE SET NULL
-    ON UPDATE CASCADE
 );
 
 CREATE TABLE homework (
-  homework_id      INTEGER(6) NOT NULL,
-  url              VARCHAR(30) NOT NULL,
-  final_grade      VARCHAR(2),
-  fk_student_id    INTEGER(6) NOT NULL,
-  fk_assignment_id INTEGER(6),
+  homework_id      NUMBER(6) NOT NULL,
+  url              VARCHAR2(30) NOT NULL,
+  final_grade      VARCHAR2(2),
+  fk_student_id    NUMBER(6) NOT NULL,
+  fk_assignment_id NUMBER(6),
   CONSTRAINT homework_pk
     PRIMARY KEY(homework_id),
   CONSTRAINT homework_student_fk
     FOREIGN KEY(fk_student_id)
     REFERENCES student(student_id)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
+    ON DELETE CASCADE,
   CONSTRAINT homework_assignment_fk
     FOREIGN KEY(fk_assignment_id)
     REFERENCES assignment(assignment_id)
     ON DELETE SET NULL
-    ON UPDATE CASCADE
 );
 
 CREATE TABLE taken_by (
-  fk_student_id INTEGER(6) NOT NULL,
-  fk_subject_id INTEGER(6) NOT NULL,
-  final_grade VARCHAR(2),
+  fk_student_id NUMBER(6) NOT NULL,
+  fk_subject_id NUMBER(6) NOT NULL,
+  final_grade VARCHAR2(2),
   CONSTRAINT taken_pk
     PRIMARY KEY(fk_student_id,fk_subject_id),
   CONSTRAINT taken_by_student_fk
     FOREIGN KEY(fk_student_id)
     REFERENCES student(STUDENT_ID)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
+    ON DELETE CASCADE,
   CONSTRAINT taken_by_subject_fk
     FOREIGN KEY(fk_subject_id)
     REFERENCES subject(subject_id)
     ON DELETE CASCADE
-    ON UPDATE CASCADE
 );
 
 
