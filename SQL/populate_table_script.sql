@@ -27,11 +27,11 @@ ALTER TABLE taken_by DISABLE CONSTRAINT taken_by_subject_fk;
 -- Teachers:
 INSERT ALL
   INTO teacher (teacher_id,  first_name,  last_name,  preferred_subject,  status) VALUES (1,  'Johannes',        'Kepler',    'Astronomy',          'Active')
-  INTO teacher (teacher_id,  first_name,  last_name,  preferred_subject,  status) VALUES (2,  'Carolyn',         'Porco',     'Planetary Geology',  'Active')
+  INTO teacher (teacher_id,  first_name,  last_name,  preferred_subject,  status) VALUES (2,  'Carolyn',         'Porco',     'Planetary Geology',  'On Leave')
   INTO teacher (teacher_id,  first_name,  last_name,  preferred_subject,  status) VALUES (3,  'Vera',            'Rubin',     'Cosmology',          'Active')
-  INTO teacher (teacher_id,  first_name,  last_name,  preferred_subject,  status) VALUES (4,  'Leonhard',        'Euler',     'Mathematics',        'Active')
-  INTO teacher (teacher_id,  first_name,  last_name,  preferred_subject,  status) VALUES (5,  'Lise',            'Meitner',   'Nuclear Physics',    'Active')
-  INTO teacher (teacher_id,  first_name,  last_name,  preferred_subject,  status) VALUES (6,  'Rosalind',        'Franklin',  'Crystallography',    'Active')
+  INTO teacher (teacher_id,  first_name,  last_name,  preferred_subject,  status) VALUES (4,  'Leonhard',        'Euler',     'Mathematics',        'On Leave')
+  INTO teacher (teacher_id,  first_name,  last_name,  preferred_subject,  status) VALUES (5,  'Lise',            'Meitner',   'Nuclear Physics',    'On Leave')
+  INTO teacher (teacher_id,  first_name,  last_name,  preferred_subject,  status) VALUES (6,  'Rosalind',        'Franklin',  'Crystallography',    'On Leave')
   INTO teacher (teacher_id,  first_name,  last_name,  preferred_subject,  status) VALUES (7,  'Marie',           'Curie',     'Chemistry',          'Active')
   INTO teacher (teacher_id,  first_name,  last_name,  preferred_subject,  status) VALUES (8,  'Grace',           'Hopper',    'Computer Science',   'Active')
   INTO teacher (teacher_id,  first_name,  last_name,  preferred_subject,  status) VALUES (9,  'Henrietta Swan',  'Leavitt',   'Computer Science',   'On Leave')
@@ -39,18 +39,19 @@ SELECT * FROM DUAL;
 
 -- subject
 INSERT ALL
-  INTO subject (subject_id, subject_name, fk_teacher_id) VALUES (1, 'Astronomy',         1)
-  INTO subject (subject_id, subject_name, fk_teacher_id) VALUES (2, 'Chemistry',         7)
-  INTO subject (subject_id, subject_name, fk_teacher_id) VALUES (3, 'Computer Science',  8)
-  INTO subject (subject_id, subject_name, fk_teacher_id) VALUES (4, 'Cosmology',         3)
-  INTO subject (subject_id, subject_name, fk_teacher_id) VALUES (5, 'Crystallography',   6)
-  INTO subject (subject_id, subject_name, fk_teacher_id) VALUES (6, 'Mathematics',       4)
-  INTO subject (subject_id, subject_name, fk_teacher_id) VALUES (7, 'Nuclear Physics',   5)
-  INTO subject (subject_id, subject_name, fk_teacher_id) VALUES (8, 'Planetary Geology', 2)
+  INTO subject (subject_id,  subject_name,  fk_teacher_id) VALUES (1,  'Astronomy',   1)
+  INTO subject (subject_id,  subject_name,  fk_teacher_id) VALUES (2,  'Geometry',    7)
+  INTO subject (subject_id,  subject_name,  fk_teacher_id) VALUES (3,  'Music',       8)
+  INTO subject (subject_id,  subject_name,  fk_teacher_id) VALUES (4,  'Arithmetic',  3)
 SELECT * FROM DUAL;
 
--- INSERT INTO homeroom
--- VALUES (homeroom_id, homeroom_name, fk_teacher_id) ;
+-- homeroom
+INSERT ALL
+  INTO homeroom (homeroom_id, homeroom_name, fk_teacher_id) VALUES (1, 'Dragons', 2)
+  INTO homeroom (homeroom_id, homeroom_name, fk_teacher_id) VALUES (2, 'Griffins', 8)
+  INTO homeroom (homeroom_id, homeroom_name, fk_teacher_id) VALUES (3, 'Demigorgons', 7)
+  INTO homeroom (homeroom_id, homeroom_name, fk_teacher_id) VALUES (4, 'Centaurs', 4)
+SELECT * FROM DUAL;
 
 -- INSERT INTO assignment
 -- VALUES (assignment_id, assignment_name, url, fk_subject_id) ;
