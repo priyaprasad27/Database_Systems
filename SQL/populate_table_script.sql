@@ -27,9 +27,9 @@ ALTER TABLE taken_by DISABLE CONSTRAINT taken_by_subject_fk;
 -- Teachers:
 INSERT ALL
   INTO teacher (teacher_id,  first_name,  last_name,  preferred_subject,  status) VALUES (1,  'Johannes',        'Kepler',    'Astronomy',          'Active')
-  INTO teacher (teacher_id,  first_name,  last_name,  preferred_subject,  status) VALUES (2,  'Carolyn',         'Porco',     'Planetary Geology',  'On Leave')
+  INTO teacher (teacher_id,  first_name,  last_name,  preferred_subject,  status) VALUES (2,  'Carolyn',         'Porco',     'Planetary Geology',  'Active')
   INTO teacher (teacher_id,  first_name,  last_name,  preferred_subject,  status) VALUES (3,  'Vera',            'Rubin',     'Cosmology',          'Active')
-  INTO teacher (teacher_id,  first_name,  last_name,  preferred_subject,  status) VALUES (4,  'Leonhard',        'Euler',     'Mathematics',        'On Leave')
+  INTO teacher (teacher_id,  first_name,  last_name,  preferred_subject,  status) VALUES (4,  'Leonhard',        'Euler',     'Mathematics',        'Active')
   INTO teacher (teacher_id,  first_name,  last_name,  preferred_subject,  status) VALUES (5,  'Lise',            'Meitner',   'Nuclear Physics',    'On Leave')
   INTO teacher (teacher_id,  first_name,  last_name,  preferred_subject,  status) VALUES (6,  'Rosalind',        'Franklin',  'Crystallography',    'On Leave')
   INTO teacher (teacher_id,  first_name,  last_name,  preferred_subject,  status) VALUES (7,  'Marie',           'Curie',     'Chemistry',          'Active')
@@ -47,14 +47,25 @@ SELECT * FROM DUAL;
 
 -- homeroom
 INSERT ALL
-  INTO homeroom (homeroom_id, homeroom_name, fk_teacher_id) VALUES (1, 'Dragons', 2)
-  INTO homeroom (homeroom_id, homeroom_name, fk_teacher_id) VALUES (2, 'Griffins', 8)
-  INTO homeroom (homeroom_id, homeroom_name, fk_teacher_id) VALUES (3, 'Demigorgons', 7)
-  INTO homeroom (homeroom_id, homeroom_name, fk_teacher_id) VALUES (4, 'Centaurs', 4)
+  INTO homeroom (homeroom_id,  homeroom_name,  fk_teacher_id) VALUES (1,  'Dragons',      2)
+  INTO homeroom (homeroom_id,  homeroom_name,  fk_teacher_id) VALUES (2,  'Griffins',     8)
+  INTO homeroom (homeroom_id,  homeroom_name,  fk_teacher_id) VALUES (3,  'Demigorgons',  7)
+  INTO homeroom (homeroom_id,  homeroom_name,  fk_teacher_id) VALUES (4,  'Centaurs',     4)
 SELECT * FROM DUAL;
 
--- INSERT INTO assignment
--- VALUES (assignment_id, assignment_name, url, fk_subject_id) ;
+-- assignment
+INSERT ALL
+  INTO assignment (assignment_id,  assignment_name,  url,  fk_subject_id) VALUES (1,   'Mean Anomalies',          'http://www.erdschool.edu/meananomaly',     1)
+  INTO assignment (assignment_id,  assignment_name,  url,  fk_subject_id) VALUES (2,   'Pentagons',               'http://www.erdschool.edu/pentagon',        2)
+  INTO assignment (assignment_id,  assignment_name,  url,  fk_subject_id) VALUES (3,   'Lydian Scale',            'http://www.erdschool.edu/lydian',          3)
+  INTO assignment (assignment_id,  assignment_name,  url,  fk_subject_id) VALUES (4,   'Perfect Numbers',         'http://www.erdschool.edu/perfectnumbers',  4)
+  INTO assignment (assignment_id,  assignment_name,  url,  fk_subject_id) VALUES (5,   'Vernal Equinox',          'http://www.erdschool.edu/vernalequinox',   1)
+  INTO assignment (assignment_id,  assignment_name,  url,  fk_subject_id) VALUES (6,   'Dodecahedrons',           'http://www.erdschool.edu/dodecahedron',    2)
+  INTO assignment (assignment_id,  assignment_name,  url,  fk_subject_id) VALUES (7,   'Fifths',                  'http://www.erdschool.edu/fifths',          3)
+  INTO assignment (assignment_id,  assignment_name,  url,  fk_subject_id) VALUES (8,   'Squares modulus 17',      'http://www.erdschool.edu/modseventeen',    4)
+  INTO assignment (assignment_id,  assignment_name,  url,  fk_subject_id) VALUES (9,   'Cepheid Variable Stars',  'http://www.erdschool.edu/cepheids',        1)
+  INTO assignment (assignment_id,  assignment_name,  url,  fk_subject_id) VALUES (10,  'Trisecting angles',       'http://www.erdschool.edu/trisectangles',   2)
+SELECT * FROM DUAL;
 
 -- Students:
 INSERT ALL
