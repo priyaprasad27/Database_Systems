@@ -59,7 +59,7 @@ CREATE TABLE homeroom (
 
 CREATE TABLE assignment (
   assignment_id    NUMBER(6) NOT NULL,
-  assignement_name VARCHAR2(30) NOT NULL,
+  assignment_name VARCHAR2(30) NOT NULL,
   url              VARCHAR2(30) NOT NULL,
   fk_subject_id    NUMBER(10) NOT NULL,
   CONSTRAINT assignment_pk
