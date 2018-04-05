@@ -63,7 +63,7 @@ SELECT * FROM DUAL;
 -- Students:
 INSERT ALL
   INTO student (student_id,  fname,  lname,  birthdate,  fk_homeroom_id) VALUES (1 ,   'Maryam',        'Mirzakhani',        '03-May-1977',  1)
-  INTO student (student_id,  fname,  lname,  birthdate,  fk_homeroom_id) VALUES (2,    'Karl',          'Gauss',             '31-Apr-1777',  3)
+  INTO student (student_id,  fname,  lname,  birthdate,  fk_homeroom_id) VALUES (2,    'Karl',          'Gauss',             '30-Apr-1777',  3)
   INTO student (student_id,  fname,  lname,  birthdate,  fk_homeroom_id) VALUES (3 ,   'Manjul',        'Bhargava',          '08-Aug-1974',  2)
   INTO student (student_id,  fname,  lname,  birthdate,  fk_homeroom_id) VALUES (4,    'Bernhard',      'Riemann',           '17-Sep-1826',  4)
   INTO student (student_id,  fname,  lname,  birthdate,  fk_homeroom_id) VALUES (5 ,   'Stanislav',     'Smirnov',           '03-Sep-1970',  2)
