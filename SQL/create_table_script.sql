@@ -60,7 +60,7 @@ CREATE TABLE homeroom (
 CREATE TABLE assignment (
   assignment_id    NUMBER(6) NOT NULL,
   assignment_name VARCHAR2(30) NOT NULL,
-  url              VARCHAR2(30) NOT NULL,
+  url              VARCHAR2(64) NOT NULL,
   fk_subject_id    NUMBER(10) NOT NULL,
   CONSTRAINT assignment_pk
     PRIMARY KEY(assignment_id),
@@ -86,7 +86,7 @@ CREATE TABLE student(
 
 CREATE TABLE homework (
   homework_id      NUMBER(6) NOT NULL,
-  url              VARCHAR2(30) NOT NULL,
+  url              VARCHAR2(64) NOT NULL,
   final_grade      VARCHAR2(2),
   fk_student_id    NUMBER(6) NOT NULL,
   fk_assignment_id NUMBER(6),
