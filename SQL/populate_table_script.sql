@@ -1,3 +1,8 @@
+/***********************
+Need to make sure whoever hands in homework for a class
+is actually taking that class
+
+***********************/
 ALTER TABLE subject DISABLE CONSTRAINT subject_teacher_fk;
 ALTER TABLE homeroom DISABLE CONSTRAINT homeroom_teacher_fk;
 ALTER TABLE assignment DISABLE CONSTRAINT assignment_subject_fk;
@@ -55,16 +60,26 @@ SELECT * FROM DUAL;
 
 -- assignment
 INSERT ALL
-  INTO assignment (assignment_id,  assignment_name,  url,  fk_subject_id) VALUES (1,   'Mean Anomalies',          'http://www.erdschool.edu/meananomaly',     1)
-  INTO assignment (assignment_id,  assignment_name,  url,  fk_subject_id) VALUES (2,   'Pentagons',               'http://www.erdschool.edu/pentagon',        2)
-  INTO assignment (assignment_id,  assignment_name,  url,  fk_subject_id) VALUES (3,   'Lydian Scale',            'http://www.erdschool.edu/lydian',          3)
-  INTO assignment (assignment_id,  assignment_name,  url,  fk_subject_id) VALUES (4,   'Perfect Numbers',         'http://www.erdschool.edu/perfectnumbers',  4)
-  INTO assignment (assignment_id,  assignment_name,  url,  fk_subject_id) VALUES (5,   'Vernal Equinox',          'http://www.erdschool.edu/vernalequinox',   1)
-  INTO assignment (assignment_id,  assignment_name,  url,  fk_subject_id) VALUES (6,   'Dodecahedrons',           'http://www.erdschool.edu/dodecahedron',    2)
-  INTO assignment (assignment_id,  assignment_name,  url,  fk_subject_id) VALUES (7,   'Fifths',                  'http://www.erdschool.edu/fifths',          3)
-  INTO assignment (assignment_id,  assignment_name,  url,  fk_subject_id) VALUES (8,   'Squares modulus 17',      'http://www.erdschool.edu/modseventeen',    4)
-  INTO assignment (assignment_id,  assignment_name,  url,  fk_subject_id) VALUES (9,   'Cepheid Variable Stars',  'http://www.erdschool.edu/cepheids',        1)
-  INTO assignment (assignment_id,  assignment_name,  url,  fk_subject_id) VALUES (10,  'Trisecting angles',       'http://www.erdschool.edu/trisectangles',   2)
+  INTO assignment (assignment_id,  assignment_name,  url,  fk_subject_id)
+    VALUES (1, 'Mean Anomalies', 'http://www.erdschool.edu/meananomaly',     1)
+  INTO assignment (assignment_id,  assignment_name,  url,  fk_subject_id)
+    VALUES (2, 'Pentagons', 'http://www.erdschool.edu/pentagon',        2)
+  INTO assignment (assignment_id,  assignment_name,  url,  fk_subject_id)
+    VALUES (3, 'Lydian Scale', 'http://www.erdschool.edu/lydian',          3)
+  INTO assignment (assignment_id,  assignment_name,  url,  fk_subject_id)
+    VALUES (4, 'Perfect Numbers', 'http://www.erdschool.edu/perfectnumbers',  4)
+  INTO assignment (assignment_id,  assignment_name,  url,  fk_subject_id)
+    VALUES (5, 'Vernal Equinox', 'http://www.erdschool.edu/vernalequinox',   1)
+  INTO assignment (assignment_id,  assignment_name,  url,  fk_subject_id)
+    VALUES (6, 'Dodecahedrons', 'http://www.erdschool.edu/dodecahedron',    2)
+  INTO assignment (assignment_id,  assignment_name,  url,  fk_subject_id)
+    VALUES (7, 'Fifths', 'http://www.erdschool.edu/fifths',          3)
+  INTO assignment (assignment_id,  assignment_name,  url,  fk_subject_id)
+    VALUES (8, 'Squares modulus 17', 'http://www.erdschool.edu/modseventeen',    4)
+  INTO assignment (assignment_id,  assignment_name,  url,  fk_subject_id)
+    VALUES (9, 'Cepheid Variable Stars', 'http://www.erdschool.edu/cepheids',        1)
+  INTO assignment (assignment_id,  assignment_name,  url,  fk_subject_id)
+    VALUES (10, 'Trisecting angles', 'http://www.erdschool.edu/trisectangles',   2)
 SELECT * FROM DUAL;
 
 -- Students:
@@ -106,5 +121,27 @@ SELECT * FROM DUAL;
 --   INTO homework (homework_id, url, final_grade, fk_student_id, fk_assignment_id) VALUES (1, 'http://www.erdschool.edu/pentagon/1', '1', '1')
 -- SELECT * FROM DUAL;
 
--- INSERT INTO taken_by
--- VALUES (fk_student_id, fk_subject_id, final_grade) ;
+-- taken_by
+INSERT ALL
+  INTO taken_by (fk_student_id,  fk_subject_id,  final_grade) VALUES (1,  1,   '')
+  INTO taken_by (fk_student_id,  fk_subject_id,  final_grade) VALUES (1,  7,   '')
+  INTO taken_by (fk_student_id,  fk_subject_id,  final_grade) VALUES (1,  22,  '')
+  INTO taken_by (fk_student_id,  fk_subject_id,  final_grade) VALUES (1,  30,  '')
+  INTO taken_by (fk_student_id,  fk_subject_id,  final_grade) VALUES (2,  3,   '')
+  INTO taken_by (fk_student_id,  fk_subject_id,  final_grade) VALUES (2,  9,   '')
+  INTO taken_by (fk_student_id,  fk_subject_id,  final_grade) VALUES (2,  11,  '')
+  INTO taken_by (fk_student_id,  fk_subject_id,  final_grade) VALUES (2,  12,  '')
+  INTO taken_by (fk_student_id,  fk_subject_id,  final_grade) VALUES (3,  2,   'A')
+  INTO taken_by (fk_student_id,  fk_subject_id,  final_grade) VALUES (3,  20,  'B')
+  INTO taken_by (fk_student_id,  fk_subject_id,  final_grade) VALUES (3,  21,  'C')
+  INTO taken_by (fk_student_id,  fk_subject_id,  final_grade) VALUES (3,  28,  'B')
+  INTO taken_by (fk_student_id,  fk_subject_id,  final_grade) VALUES (3,  29,  'A')
+  INTO taken_by (fk_student_id,  fk_subject_id,  final_grade) VALUES (4,  4,   '')
+  INTO taken_by (fk_student_id,  fk_subject_id,  final_grade) VALUES (4,  5,   '')
+  INTO taken_by (fk_student_id,  fk_subject_id,  final_grade) VALUES (4,  8,   '')
+  INTO taken_by (fk_student_id,  fk_subject_id,  final_grade) VALUES (4,  13,  '')
+  INTO taken_by (fk_student_id,  fk_subject_id,  final_grade) VALUES (4,  16,  '')
+  INTO taken_by (fk_student_id,  fk_subject_id,  final_grade) VALUES (4,  17,  '')
+  INTO taken_by (fk_student_id,  fk_subject_id,  final_grade) VALUES (4,  22,  '')
+  INTO taken_by (fk_student_id,  fk_subject_id,  final_grade) VALUES (4,  23,  '')
+SELECT * FROM DUAL;
