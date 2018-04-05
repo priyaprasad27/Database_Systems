@@ -101,8 +101,10 @@ INSERT ALL
   INTO student (student_id,  fname,  lname,  birthdate,  fk_homeroom_id) VALUES (30,   'Barbara',       'McClintock',        '16-Jun-1906',  2)
 SELECT * FROM DUAL;
 
--- INSERT INTO homework
--- VALUES (homework_id, url, final_grade, fk_student_id, fk_assignment_id) ;
+-- homework
+-- INSERT ALL
+--   INTO homework (homework_id, url, final_grade, fk_student_id, fk_assignment_id) VALUES (1, 'http://www.erdschool.edu/pentagon/1', '1', '1')
+-- SELECT * FROM DUAL;
 
 -- INSERT INTO taken_by
 -- VALUES (fk_student_id, fk_subject_id, final_grade) ;
