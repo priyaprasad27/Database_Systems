@@ -1,8 +1,10 @@
-/***********************
-Need to make sure whoever hands in homework for a class
-is actually taking that class
+/* Oracle 11.2 */
 
-***********************/
+/*******************************************
+Need to make sure whoever hands in homework
+for a class is actually taking that class
+*******************************************/
+
 ALTER TABLE subject DISABLE CONSTRAINT subject_teacher_fk;
 ALTER TABLE homeroom DISABLE CONSTRAINT homeroom_teacher_fk;
 ALTER TABLE assignment DISABLE CONSTRAINT assignment_subject_fk;
