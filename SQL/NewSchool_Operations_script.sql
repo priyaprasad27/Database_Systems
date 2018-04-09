@@ -18,7 +18,6 @@ SELECT s.subject_name, g.assignment_id, g.assignment_name, g.url
 FROM assignment g, subject s
 WHERE s.subject_id = g.fk_subject_id
 AND s.subject_name = 'Astronomy';
--- and g.fk_subject_id=1;
 
 -- Display a list of all students taught by a given teacher. Sample teacher - Teacher id 2, Carolyn Porco
 SELECT  t.first_name||' '||t.last_Name as teacher_Name, s.fname||' '||s.lname as student_name
@@ -27,7 +26,6 @@ WHERE s.fk_homeroom_id = h.homeroom_id
 AND h.fk_teacher_id = t.teacher_id
 AND t.first_name = 'Carolyn'
 AND t.last_name = 'Porco';
--- AND t.teacher_id = 2;
 
 -- DISPLAY A LIST OF ALL THE STUDENT WORK BY A STUDENT. Sample student_id = 22
 SELECT  s.fname||' '||s.lname as student_Name, h.url as homework_url
@@ -35,7 +33,6 @@ FROM homework h, student s
 WHERE s.student_id = h.fk_student_id
 AND s.fname = 'Johannes'
 AND s.lname = 'Hevelius';
--- AND s.student_id = 22;
 
 -- Display a list of student work for a classroom. Sample homeroom_id = 2
 SELECT h.fk_student_id AS homeroom_2_students, s.fname||' '||s.lname as student_name, h.url AS student_work
@@ -48,5 +45,36 @@ AND s.student_id = h.fk_student_id;
 INSERT INTO student (student_id,  fname,  lname,  birthdate,  fk_homeroom_id) VALUES (31 ,   'Priya',        'Prasad',        '03-May-1987',  3);
 INSERT INTO student (student_id,  fname,  lname,  birthdate,  fk_homeroom_id) VALUES (32 ,   'Peter',        'Martinson',     '03-Jun-1987',  2);
 
+-- Replace a subject's teacher with a substitute.  Sample subject_id = 3
+-- First, find a possible substitute:
+SELECT DISTINCT
+  subject.subject_name
+, teacher.first_name || ' ' || teacher.last_name AS current_teacher
+, teacher.preferred_subject
+, possible_sub.first_name || ' ' || possible_sub.last_name AS possible_sub
+, possible_sub.teacher_id
+FROM
+  subject
+  INNER JOIN teacher
+    ON teacher.teacher_id = subject.fk_teacher_id
+  LEFT OUTER JOIN teacher possible_sub
+    ON possible_sub.preferred_subject = teacher.preferred_subject
+    AND possible_sub.teacher_id <> teacher.teacher_id
+    AND possible_sub.teacher_id NOT IN ( SELECT fk_teacher_id FROM subject)
+WHERE subject.subject_id = 3;
 
+-- Second, update the subject table
+UPDATE subject
+SET fk_teacher_id = 9
+WHERE subject_id = 3;
 
+-- Display a list of all teachers not teaching a subject
+-- ** This is to show a useful application of LEFT OUTER JOINs **
+SELECT DISTINCT
+  teacher.first_name || ' ' || teacher.last_name AS teacher_name
+, teacher.teacher_id
+FROM
+  teacher
+  LEFT OUTER JOIN subject
+    ON subject.fk_teacher_id = teacher.teacher_id
+WHERE subject.subject_id IS NULL;
