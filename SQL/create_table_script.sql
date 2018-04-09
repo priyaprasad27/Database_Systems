@@ -1,4 +1,14 @@
-/* Oracle 11.2 */
+/* Oracle Database Express Edition 11g Release 2
+
+This and all associated scripts were tested and ran successfully using the
+docker image available at the following URL:
+
+https://hub.docker.com/r/wnameless/oracle-xe-11g/
+
+Created by:
+Priya Prasad
+Peter Martinson
+*/
 
 /**************************************************************************
 Assumptions
