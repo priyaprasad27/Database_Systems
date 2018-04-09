@@ -1,3 +1,16 @@
+/* Oracle Database Express Edition 11g Release 2
+
+This and all associated scripts were tested and ran successfully using the
+docker image available at the following URL:
+
+https://hub.docker.com/r/wnameless/oracle-xe-11g/
+$ docker pull wnameless/oracle-xe-11g
+
+Created by:
+Priya Prasad
+Peter Martinson
+*/
+
 /******* Operations for New school database**************
 Each query has the operation commented and sample data used in the operations
 A separate document with results will be attached***********************/
