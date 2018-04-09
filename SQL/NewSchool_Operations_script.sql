@@ -25,7 +25,9 @@ SELECT  t.first_name||' '||t.last_Name as teacher_Name, s.fname||' '||s.lname as
 FROM student s, homeroom h, teacher t
 WHERE s.fk_homeroom_id = h.homeroom_id
 AND h.fk_teacher_id = t.teacher_id
-AND t.teacher_id = 2;
+AND t.first_name = 'Carolyn'
+AND t.last_name = 'Porco';
+-- AND t.teacher_id = 2;
 
 -- DISPLAY A LIST OF ALL THE STUDENT WORK BY A STUDENT. Sample student_id = 22
 SELECT  s.fname||' '||s.lname as student_Name, h.url as homework_url
