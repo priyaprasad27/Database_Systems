@@ -33,7 +33,9 @@ AND t.last_name = 'Porco';
 SELECT  s.fname||' '||s.lname as student_Name, h.url as homework_url
 FROM homework h, student s
 WHERE s.student_id = h.fk_student_id
-AND s.student_id = 22;
+AND s.fname = 'Johannes'
+AND s.lname = 'Hevelius';
+-- AND s.student_id = 22;
 
 -- Display a list of student work for a classroom. Sample homeroom_id = 2
 SELECT h.fk_student_id AS homeroom_2_students, s.fname||' '||s.lname as student_name, h.url AS student_work
