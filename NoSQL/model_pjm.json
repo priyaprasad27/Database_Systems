@@ -1,15 +1,41 @@
-{
-  teacher: {
-   teacher_id: 1,
-   first_name: 'Johannes',
-   last_name: 'Kepler',
-   preferred_subject: 'Astronomy',
-   status: 'Active',
-   teaches: {
-     subject_name = 'Astronomy'
-   }
+[
+  {
+    teacher: {
+      teacher_id: 1,
+      first_name: 'Johannes',
+      last_name: 'Kepler',
+      preferred_subject: 'Astronomy',
+      status: 'Active',
+      teaches: {
+        subject_name: 'Astronomy'
+      }
+    }
+  },
+  {
+    teacher: {
+      teacher_id: 2,
+      first_name: 'Caroline',
+      last_name: 'Porco',
+      preferred_subject: 'Planetary Geology',
+      status: 'Active',
+      oversees: {
+        homeroom_name: 'Dragons'
+      }
+    }
+  },
+  {
+    teacher: {
+      teacher_id: 3,
+      first_name: 'Vera',
+      last_name: 'Rubin',
+      preferred_subject: 'Cosmology',
+      status: 'Active',
+      teaches: {
+        subject_name: 'Arithmetic'
+      }
+    }
   }
-}
+]
 
 {
   homeroom: {
