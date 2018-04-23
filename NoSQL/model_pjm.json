@@ -1,0 +1,63 @@
+{
+  teacher: {
+   teacher_id: 1,
+   first_name: 'Johannes',
+   last_name: 'Kepler',
+   preferred_subject: 'Astronomy',
+   status: 'Active',
+   teaches: {
+     subject_name = 'Astronomy'
+   }
+  }
+}
+
+{
+  homeroom: {
+    homeroom_id: 1,
+    homerrom_name: 'Dragons'
+  }
+}
+
+{
+  subject: {
+    subject_id: 1,
+    subject_name: 'Astronomy'
+  }
+}
+
+{
+  student: {
+    student_id: 1, 
+    fname: 'Maryam',
+    lname: 'Mirzakhani',
+    birthdate: '03-May-1977',
+    assigned_to: {
+      // There will only be one entry here per student
+      homeroom_name: 'Dragons'
+    },
+    taking: {
+      // Few subjects per student
+      subject_name: 'Astronomy',
+      final_grade: ''
+    },
+    submits: {
+      // Few assignments per student
+      assignment_name: 'Mean Anomalies',
+      url: 'http://www.erdschool.edu/meananomaly/1',
+      final_grade: ''
+    }
+  }
+}
+
+{
+  assignment: {
+    assignment_id: 1,
+    assignment_name: 'Mean Anomalies',
+    url: 'http://www.erdschool.edu/meananomaly'
+    is_for: {
+      // There will only be one entry here per assignment
+      subject_name: 'Astronomy'
+    }
+  }
+}
+
