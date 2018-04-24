@@ -1,0 +1,69 @@
+{
+	Teacher : {
+		teacher_id: ""
+		teacher_name : {
+			first_name : ""
+			last_name : ""
+		status: ""
+		oversees : //reference to homeroom
+		room_name : ""
+	}
+}
+
+{
+	Homeroom : {
+		room_id : ""
+		room_name : ""
+		// can have a reference to all students belonging to the homeroom?
+	}
+}
+
+{
+	Subject : {
+		subject_id : ""
+		subject_name : ""
+		taught_by : {
+		//reference to teacher_name
+		teacher_name : ""
+		}
+	}
+}
+
+{
+	Student : {
+		student_id : ""
+		student_name : {
+			first_name : ""
+			last_name : ""
+		}
+		takes : [
+			{
+				subject_name : ""
+				final_grade : ""
+			},
+			{
+				subject_name : ""
+				final_grade : ""
+			}]
+		belongs_to : {
+		//reference to homeroom
+		homeroom : ""
+		submits : {
+		//Student work urls
+		studentwork_url : ""
+		final_grade : ""
+		}
+	}
+}
+
+{
+	StudentAssignment : {
+		assignment_id : ""
+		assignment_name : ""
+		assignment_url : ""	
+		for_subject : {
+			subject_name : ""
+		}
+		
+	}
+}
