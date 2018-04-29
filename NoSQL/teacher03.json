@@ -1,0 +1,9 @@
+{
+  "teacher_id": 3,
+  "teacher_name": {
+    "first_name": "Vera",
+    "last_name": "Rubin"
+  },
+  "preferred_subject": "Cosmology",
+  "status": "Active"
+}

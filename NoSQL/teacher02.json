@@ -1,0 +1,9 @@
+{
+  "teacher_id": 2,
+  "teacher_name": {
+    "first_name": "Caroline",
+    "last_name": "Porco"
+  },
+  "preferred_subject": "Planetary Geology",
+  "status": "Active"
+}
