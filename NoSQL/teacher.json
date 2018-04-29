@@ -1,10 +1,10 @@
-{"teacher_name": { "first_name": "Johannes", "last_name": "Kepler"}, "preferred_subject": "Astronomy", "status": "Active"}
-{"teacher_name": { "first_name": "Carolyn", "last_name": "Porco"}, "preferred_subject": "Planetary Geology", "status": "Active"}
-{"teacher_name": { "first_name": "Vera", "last_name": "Rubin"}, "preferred_subject": "Cosmology", "status": "Active"}
-{"teacher_name": { "first_name": "Leonhard", "last_name": "Euler"}, "preferred_subject": "Mathematics", "status": "Active"}
+{"teacher_name": { "first_name": "Johannes", "last_name": "Kepler"}, "preferred_subject": "Astronomy", "status": "Active", "teaches": { "subject_name": "Astronomy" }}
+{"teacher_name": { "first_name": "Carolyn", "last_name": "Porco"}, "preferred_subject": "Planetary Geology", "status": "Active", "oversees": { "homeroom_name": "Dragons"}}
+{"teacher_name": { "first_name": "Vera", "last_name": "Rubin"}, "preferred_subject": "Cosmology", "status": "Active", "teaches": { "subject_name": "Arithmetic" }}
+{"teacher_name": { "first_name": "Leonhard", "last_name": "Euler"}, "preferred_subject": "Mathematics", "status": "Active", "oversees": { "homeroom_name": "Centaurs"}}
 {"teacher_name": { "first_name": "Lise", "last_name": "Meitner"}, "preferred_subject": "Nuclear Physics", "status": "On Leave"}
 {"teacher_name": { "first_name": "Rosalind", "last_name": "Franklin"}, "preferred_subject": "Crystallography", "status": "On Leave"}
-{"teacher_name": { "first_name": "Marie", "last_name": "Curie"}, "preferred_subject": "Chemistry", "status": "Active"}
-{"teacher_name": { "first_name": "Grace", "last_name": "Hopper"}, "preferred_subject": "Computer Science", "status": "Active"}
+{"teacher_name": { "first_name": "Marie", "last_name": "Curie"}, "preferred_subject": "Chemistry", "status": "Active", "oversees": { "homeroom_name": "Demigorgons"}, "teaches": { "subject_name": "Geometry" }}
+{"teacher_name": { "first_name": "Grace", "last_name": "Hopper"}, "preferred_subject": "Computer Science", "status": "Active", "oversees": { "homeroom_name": "Griffins"}, "teaches": { "subject_name": "Music" }}
 {"teacher_name": { "first_name": "Henrietta Swan", "last_name": "Leavitt"}, "preferred_subject": "Computer Science", "status": "On Leave"}
 

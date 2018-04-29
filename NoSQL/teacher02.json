@@ -1,9 +1,1 @@
-{
-  "teacher_id": 2,
-  "teacher_name": {
-    "first_name": "Caroline",
-    "last_name": "Porco"
-  },
-  "preferred_subject": "Planetary Geology",
-  "status": "Active"
-}
+{"teacher_name": { "first_name": "Carolyn", "last_name": "Porco"}, "preferred_subject": "Planetary Geology", "status": "Active", "oversees": { "homeroom_name": "Dragons"}}
