@@ -1,1 +1,1 @@
-{"student_name": {"first_name": "Karl", "last_name": "Gauss" }, "birth_date": "30-Apr-1777", "belongs_to": {"homeroom_name": "Demigorgons"}, "submits": [{ "assignment_name": "Lydian Scale", "url": "http://www.erdschool.edu/lydian/2", "final_grade": ""}]}
+{"student_name": {"first_name": "Karl", "last_name": "Gauss" }, "birth_date": "30-Apr-1777", "belongs_to": {"homeroom_name": "Demigorgons"}, "taking": [{ "subject_name": "Music", "final_grade": "A" }], "submits": [{ "assignment_name": "Lydian Scale", "url": "http://www.erdschool.edu/lydian/2", "final_grade": ""}]}
