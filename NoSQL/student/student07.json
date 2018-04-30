@@ -1,0 +1,1 @@
+{"student_name": {"first_name": "Terence", "last_name": "Tao" }, "birth_date": "17-Jul-1975", "belongs_to": {"homeroom_name": "Dragons"}, "taking": [{ "subject_uri": "/subject/2018-spring/astronomy/astro01.json", "final_grade": "", "submits": [{ "assignment_name": "Mean Anomalies", "url": "http://www.erdschool.edu/meananomaly/7", "final_grade": ""}] }]}
