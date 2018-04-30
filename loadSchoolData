@@ -1,0 +1,24 @@
+'use strict';
+declareUpdate();
+
+const dataDir = 'C:/Users/Swetha/Documents/Villanova/Semesters/Spring-2018/DataBase systems/Team-v2/NoSql-Team v2/School';
+
+function loadDocs(path) {  
+  const entries = xdmp.filesystemDirectory(path);  
+  entries.map(entry => {    
+    if (entry.type === 'directory') {      
+      loadDocs(entry.pathname);    
+    }
+    else {
+      xdmp.documentLoad(entry.pathname, { uri: entry.pathname.replace(/.*School/, '') });
+    }
+  });
+}
+
+// Make sure we're using the right database
+if (xdmp.databaseName(xdmp.database()) === 'ElementarySchool') {
+  loadDocs(dataDir);
+  'Data loaded';
+} else {
+  'Please select the "ElementarySchool" database.';
+}

@@ -1,0 +1,1 @@
+{"student_name": {"first_name": "Blaise", "last_name": "Pascal" }, "birth_date": "12-Jun-1623", "belongs_to": {"homeroom_name": "Griffins"}, "taking": [{ "subject_name": "/subject/2018-spring/music/mus01.json", "final_grade": "B", "submits": [{ "assignment_name": "Fifths", "url": "http://www.erdschool.edu/fifths/20", "final_grade": "A"}] }]}
