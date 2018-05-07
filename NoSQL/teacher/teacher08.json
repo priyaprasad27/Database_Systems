@@ -1,1 +1,1 @@
-{"teacher_name": { "first_name": "Grace", "last_name": "Hopper"}, "preferred_subject": "Computer Science", "status": "Active", "oversees": { "homeroom_name": "Griffins"}, "teaches": [{ "subject_name": "/subject/2018-spring/music/mus01.json"}]}
+{"teacher_name": { "first_name": "Grace", "last_name": "Hopper"}, "preferred_subject": "Computer Science", "status": "Active", "oversees": { "homeroom_name": "Griffins"}, "teaches": [{ "subject_uri": "/subject/2018-spring/mus01.json"}]}

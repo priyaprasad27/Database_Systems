@@ -1,1 +1,1 @@
-{"teacher_name": { "first_name": "Vera", "last_name": "Rubin"}, "preferred_subject": "Cosmology", "status": "Active", "teaches": [{ "subject_name": "/subject/2018-spring/arithmetic/arith01.json"}]}
+{"teacher_name": { "first_name": "Vera", "last_name": "Rubin"}, "preferred_subject": "Cosmology", "status": "Active", "teaches": [{ "subject_uri": "/subject/2018-spring/arith01.json"}]}
