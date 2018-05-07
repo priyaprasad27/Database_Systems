@@ -1,0 +1,33 @@
+const indexConfig = {
+  'range-element-index': [
+    {
+      'scalar-type': 'string',
+      'namespace-uri': null,
+      'localname': 'homeroom_name',
+      'collation': 'http://marklogic.com/collation/',
+      'range-value-positions': false,
+      'invalid-values': 'reject'
+    }
+  ]
+};
+
+const headers =  {
+  authentication : {
+    method : 'digest',
+    username : 'admin',
+    password : 'admin'
+  },
+  headers: {
+    'content-type': 'application/json'
+  }
+};
+
+const endpoint = 'http://localhost:8002/manage/v2/databases/ElemDB/properties';
+
+if (xdmp.databaseName(xdmp.database()) === 'ElemDB') {
+  const request = xdmp.httpPut(endpoint, headers, indexConfig);
+  Array.from(request)[0].code === 204 ? 'Index added' : `Error: ${Array.from(request)[1].root.errorResponse.message}`;
+} else {
+  'Please select the "ElemDB" database';
+}
+

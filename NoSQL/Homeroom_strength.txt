@@ -1,0 +1,11 @@
+'use strict';
+ 
+const values = cts.values(cts.jsonPropertyReference("homeroom_name"));
+
+let counts = [];
+for (let value of values) {
+  counts.push('\n' + value + ': ' + cts.frequency(value) );  
+}
+
+"Classroom : Strength" + "\n" + 
+counts

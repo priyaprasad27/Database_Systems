@@ -1,0 +1,32 @@
+'use strict';
+
+//Display subjects taught by a teacher's last name
+//This program does not validate that the property lastname belongs only to teacher documents
+var lastname = "kepler"
+const results = cts.search(cts.jsonPropertyValueQuery("last_name", lastname));
+
+var subject;
+let teaches = [];
+for (let doc of results) {
+    subject = doc.root.preferred_subject;
+    teaches.push(doc.root.teaches.xpath('/teaches/subject_uri'))
+}
+
+
+//lastname + "'s preferred subject is : " + subject + "\n" +
+//"Teaches subject : " + teaches
+//teaches
+
+for(let i=0;i<teaches.length;i++) {
+const d = fn.doc(teaches[i]);
+  for (const x of d) {
+    lastname + "'s preferred subject is : " + subject + "\n" +
+   "Teaches subject : " + x.root.xpath('/subject_name')
+  }
+}
+
+
+
+
+
+
