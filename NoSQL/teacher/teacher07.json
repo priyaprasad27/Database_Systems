@@ -1,1 +1,1 @@
-{"teacher_name": { "first_name": "Marie", "last_name": "Curie"}, "preferred_subject": "Chemistry", "status": "Active", "oversees": { "homeroom_name": "Demigorgons"}, "teaches": [{ "subject_name": "/subject/2018-spring/geom01.json"}]}
+{"teacher_name": { "first_name": "Marie", "last_name": "Curie"}, "preferred_subject": "Chemistry", "status": "Active", "oversees": { "homeroom_name": "Demigorgons"}, "teaches": [{ "subject_uri": "/subject/2018-spring/geom01.json"}]}

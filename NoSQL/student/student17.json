@@ -1,1 +1,2 @@
-{"student_name": {"first_name": "Michael", "last_name": "Freedman" }, "birth_date": "21-Apr-1951", "belongs_to": {"homeroom_name": "Dragons"}, "taking": [{ "subject_name": "/subject/2018-spring/arith01.json", "final_grade": "", "submits": [{ "assignment_name": "Perfect Numbers", "url": "http://www.erdschool.edu/perfectnumbers/17", "final_grade": "B"}] }]}
+{"student_name": {"first_name": "Michael", "last_name": "Freedman" }, "birth_date": "21-Apr-1951", "belongs_to": {"homeroom_name": "Dragons"}, "taking": [{ "subject_uri": "/subject/2018-spring/arith01.json", "final_grade": "", "submits": [{ "assignment_name": "Perfect Numbers", "url": "http://www.erdschool.edu/perfectnumbers/17", "final_grade": "B"}] }]}
+

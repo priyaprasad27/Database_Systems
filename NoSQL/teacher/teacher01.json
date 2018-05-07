@@ -1,1 +1,1 @@
-{"teacher_name": { "first_name": "Johannes", "last_name": "Kepler"}, "preferred_subject": "Astronomy", "status": "Active", "teaches": [{ "subject_name": "/subject/2018-spring/astro01.json"}]}
+{"teacher_name": { "first_name": "Johannes", "last_name": "Kepler"}, "preferred_subject": "Astronomy", "status": "Active", "teaches": [{ "subject_uri": "/subject/2018-spring/astro01.json"}]}
