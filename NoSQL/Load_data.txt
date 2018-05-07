@@ -1,0 +1,25 @@
+'use strict';
+declareUpdate();
+
+
+const dataDir = 'C:/Users/Swetha/Documents/Villanova/Semesters/Spring-2018/DataBase systems/school';
+
+function loadDocs(path) {  
+  const entries = xdmp.filesystemDirectory(path);  
+  entries.map(entry => {    
+    if (entry.type === 'directory') {      
+      loadDocs(entry.pathname);    
+    }
+    else {
+      xdmp.documentLoad(entry.pathname, { uri: entry.pathname.replace(/.*school/, '') });
+    }
+  });
+}
+
+if (xdmp.databaseName(xdmp.database()) === 'ElemDB') {
+  loadDocs(dataDir);
+  'Data loaded';
+} else {
+  'Please select the "ElemDB" database.';
+}
+

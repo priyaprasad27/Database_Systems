@@ -1,0 +1,9 @@
+'use strict';
+
+//select all the asignments for a given subject - sample subject astro01
+
+let doc = cts.doc('/subject/2018-spring/astro01.json');
+doc
+
+"Assignments for the subject " + doc.root.subject_name + " are :\n" +
+doc.xpath("/assignments/assignment_name" )

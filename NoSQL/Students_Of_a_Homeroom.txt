@@ -1,0 +1,19 @@
+
+'use strict';
+
+//Select all the students who belong to a specific homeroom. Sample search for homeroom "Dragons"
+
+var homeRoom = "dragons";
+const results = cts.search(homeRoom);
+
+let students = [];
+let count =0;
+for (let doc of results) {
+  if (!doc.root.hasOwnProperty('teacher_name')) {
+    students.push(doc.root.xpath('/student_name/first_name') + ' ' + doc.root.xpath('/student_name/last_name'));
+    count++;
+  }
+}
+
+//"Number of students in homeRoom " + homeRoom + " is :"  + count ;
+students;
